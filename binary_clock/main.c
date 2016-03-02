@@ -13,9 +13,15 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+volatile long TIME = 0;
+int minutes_single = 0;
+int minutes_tens = 0;
+
 // Function prototypes
 void init_ports();
 void init_timer();
+void update_minutes();
+
 
 int main(void)
 {
@@ -30,8 +36,10 @@ int main(void)
 
 void init_ports(void){
 	// Set outputs
-	DDRB |= 0x01;	// Pins on PORTB
-	PORTB = 0x00; // Set initial value of output port
+	DDRB |= 0x1f;	// Pins on PORTB
+	DDRC |= 0x07;	// Pins on PORTC
+	PORTB = 0x1f; // Set initial value of output port B
+	PORTC = 0x1f; // Set initial value of output port C
 }
 
 void init_timer(void){
@@ -45,6 +53,25 @@ void init_timer(void){
 }
 
 ISR(TIMER1_COMPA_vect){
-	PORTB ^= 0x01;
+	++TIME;
+	update_minutes();	
 }
+
+void update_minutes(void){
+	minutes_single = (TIME%60)%10;
+	// Check each bit in the single minutes
+	// Minutes, single minutes
+	(minutes_single & 0x01) ? (PORTB &= ~(1 << PB0)): (PORTB |= (1 << PB0)) ;
+	(minutes_single & 0x02) ? (PORTB &= ~(1 << PB1)) : (PORTB |= (1 << PB1));
+	(minutes_single & 0x04) ? (PORTB &= ~(1 << PB2)) : (PORTB |= (1 << PB2));
+	(minutes_single & 0x08) ? (PORTB &= ~(1 << PB3)) : (PORTB |= (1 << PB3));
+	// Minutes, tens of minutes
+	minutes_tens = (TIME%60)/10;
+	// Check each bit in tens of minutes
+	// Minutes, least significant
+	(minutes_tens & 0x01) ? (PORTC &= ~(1 << PC0)) : (PORTC |= (1 << PC0));
+	(minutes_tens & 0x02) ? (PORTC &= ~(1 << PC1)) : (PORTC |= (1 << PC1));
+	(minutes_tens & 0x04) ? (PORTC &= ~(1 << PC2)) : (PORTC |= (1 << PC2));
+}
+
 	

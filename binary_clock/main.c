@@ -9,7 +9,8 @@
  * Processor must be programmed to run at 1 MHz internal oscillator
  * PD2 has INT0 and PD3 has INT1
  * TODO: Move function prototypes to header file
- * TODO: Implement a sleep mode
+ * TODO: Implement function to update hours
+ * TODO: Make TIME reset itself after 1 day
  */ 
 
 #include <avr/io.h>
@@ -18,7 +19,6 @@
 volatile long TIME = 0;
 int minutes_single = 0;
 int minutes_tens = 0;
-int old_button = 0;
 
 // Function prototypes
 void init_ports();
@@ -58,8 +58,8 @@ void init_timer(void){
 	TIMSK1 |= (1 << OCIE1A); // Enable CTC interrupt
 	TCNT1 = 0;	// Reset timer counter
 	TCCR1B |= (1 << WGM12);	// Set to CTC mode on OCR1A
-	TCCR1B |= (1 << CS10) | (1 << CS11);	// Set prescaler to 1/64
-	OCR1A = 15624;			// Compare value of register
+	TCCR1B |= (1 << CS10) | (1 << CS12);	// Set prescaler to 1/1024
+	OCR1A = 58594;			// Compare value of register
 }
 
 void init_pin_interrupt(void){
@@ -83,17 +83,19 @@ void start_sleep(void){
 
 ISR(TIMER1_COMPA_vect){
 	++TIME;
-	update_minutes();	
+	update_minutes();
 }
 
 ISR(INT0_vect) {
 	// Increase minutes
-	TIME += 4;
+	TIME += 1;
+	update_minutes();
 }
 
 ISR(INT1_vect) {
 	// Increase hours
 	TIME += 10;
+	//update_hours();
 }
 
 void update_minutes(void){

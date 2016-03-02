@@ -12,6 +12,15 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+void init_timer(void){
+	// Configure timer interrupt
+	TIMSK |= (1 << OCIE1A); // Enable CTC interrupt
+	TCNT1 = 0;	// Reset timer counter
+	TCCR1B |= (1 << WGM12);	// Set to CTC mode on OCR1A
+	TCCR1B |= (1 << CS10) | (1 << CS11);	// Set prescaler to 1/64
+	OCR1A = 15624;			// Compare value of register
+	sei(); // Enable global interrupts
+}
 ISR(TIMER1_COMPA_vect){
 	PORTB ^= 0x01;
 }
@@ -22,13 +31,7 @@ int main(void)
 	DDRB |= 0x01;	// Pins on PORTB
 	PORTB = 0x00; // Set initial value of output port
 	
-	// Configure timer interrupt
-	TIMSK |= (1 << OCIE1A); // Enable CTC interrupt
-	TCNT1 = 0;	// Reset timer counter
-	TCCR1B |= (1 << WGM12);	// Set to CTC mode on OCR1A
-	TCCR1B |= (1 << CS10) | (1 << CS11);	// Set prescaler to 1/64
-	OCR1A = 15624;			// Compare value of register
-	sei(); // Enable global interrupts
+	init_timer();
  
 	while (1)
     {

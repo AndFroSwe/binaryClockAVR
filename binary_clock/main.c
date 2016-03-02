@@ -7,7 +7,9 @@
  * Uses timer interrupt to set correct leds
  * Register info can be found in manual page 131
  * Processor must be programmed to run at 1 MHz internal oscillator
+ * PD0 has PINT16 and PD1 has PCINT17
  * TODO: Move function prototypes to header file
+ * TODO: Implement a sleep mode
  */ 
 
 #include <avr/io.h>
@@ -16,10 +18,12 @@
 volatile long TIME = 0;
 int minutes_single = 0;
 int minutes_tens = 0;
+int old_button = 0;
 
 // Function prototypes
 void init_ports();
 void init_timer();
+void init_pin_interrupt();
 void update_minutes();
 
 
@@ -27,34 +31,45 @@ int main(void)
 {
 	init_ports();
 	init_timer();
+	init_pin_interrupt();
+	sei(); // Enable global interrupts
  
 	while (1)
     {
-    }
+	}
 	return 0;
 }
 
 void init_ports(void){
 	// Set outputs
 	DDRB |= 0x1f;	// Pins on PORTB
-	DDRC |= 0x07;	// Pins on PORTC
+	DDRC |= 0x87;	// Pins on PORTC
+	DDRD |= 0x00;	// Pins on PORTD
 	PORTB = 0x1f; // Set initial value of output port B
 	PORTC = 0x1f; // Set initial value of output port C
+	PORTD = 0x01; // Enable pullup resistor
 }
 
 void init_timer(void){
 	// Configure timer interrupt
-	TIMSK |= (1 << OCIE1A); // Enable CTC interrupt
+	TIMSK1 |= (1 << OCIE1A); // Enable CTC interrupt
 	TCNT1 = 0;	// Reset timer counter
 	TCCR1B |= (1 << WGM12);	// Set to CTC mode on OCR1A
 	TCCR1B |= (1 << CS10) | (1 << CS11);	// Set prescaler to 1/64
 	OCR1A = 15624;			// Compare value of register
-	sei(); // Enable global interrupts
 }
 
+void init_pin_interrupt(void){
+	PCICR |= (1 << PCIE2);		// Set interrupt detect 
+	PCMSK2 |= (1 << PCINT16);	// Enable interrupt on PD0
+}
 ISR(TIMER1_COMPA_vect){
 	++TIME;
 	update_minutes();	
+}
+
+ISR(PCINT2_vect) {
+	TIME += 4;
 }
 
 void update_minutes(void){

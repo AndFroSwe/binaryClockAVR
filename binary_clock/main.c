@@ -7,7 +7,7 @@
  * Uses timer interrupt to set correct leds
  * Register info can be found in manual page 131
  * Processor must be programmed to run at 1 MHz internal oscillator
- * PD0 has PINT16 and PD1 has PCINT17
+ * PD2 has INT0 and PD3 has INT1
  * TODO: Move function prototypes to header file
  * TODO: Implement a sleep mode
  */ 
@@ -44,10 +44,10 @@ void init_ports(void){
 	// Set outputs
 	DDRB |= 0x1f;	// Pins on PORTB
 	DDRC |= 0x87;	// Pins on PORTC
-	DDRD |= 0x00;	// Pins on PORTD
-	PORTB = 0x1f; // Set initial value of output port B
-	PORTC = 0x1f; // Set initial value of output port C
-	PORTD = 0x01; // Enable pullup resistor
+	DDRD = 0x00;	// Pins on PORTD
+	PORTB |= 0x1f; // Set initial value of output port B
+	PORTC |= 0x1f; // Set initial value of output port C
+	PORTD |= (1 << PD2) | (1 << PD3); // Enable pullup resistor
 }
 
 void init_timer(void){
@@ -60,16 +60,29 @@ void init_timer(void){
 }
 
 void init_pin_interrupt(void){
-	PCICR |= (1 << PCIE2);		// Set interrupt detect 
-	PCMSK2 |= (1 << PCINT16);	// Enable interrupt on PD0
+	// Configure interrupts on falling edge for INT0
+	EICRA |= (1 << ISC01);
+	EICRA &= ~(1 << ISC00);
+	EIMSK |= (1 << INT0);		// Enable INT0 interrupt
+	// Configure interrupts on falling edge for INT1
+	EICRA |= (1 << ISC11);
+	EICRA &= ~(1 << ISC10);
+	EIMSK |= (1 << INT1);		// Enable INT0 interrupt
 }
+
 ISR(TIMER1_COMPA_vect){
 	++TIME;
 	update_minutes();	
 }
 
-ISR(PCINT2_vect) {
+ISR(INT0_vect) {
+	// Increase minutes
 	TIME += 4;
+}
+
+ISR(INT1_vect) {
+	// Increase minutes
+	TIME += 10;
 }
 
 void update_minutes(void){

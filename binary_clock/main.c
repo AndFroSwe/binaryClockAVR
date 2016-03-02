@@ -12,6 +12,12 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+void init_ports(void){
+	// Set outputs
+	DDRB |= 0x01;	// Pins on PORTB
+	PORTB = 0x00; // Set initial value of output port
+}
+
 void init_timer(void){
 	// Configure timer interrupt
 	TIMSK |= (1 << OCIE1A); // Enable CTC interrupt
@@ -21,16 +27,14 @@ void init_timer(void){
 	OCR1A = 15624;			// Compare value of register
 	sei(); // Enable global interrupts
 }
+
 ISR(TIMER1_COMPA_vect){
 	PORTB ^= 0x01;
 }
 	
 int main(void)
 {
-	// Set outputs
-	DDRB |= 0x01;	// Pins on PORTB
-	PORTB = 0x00; // Set initial value of output port
-	
+	init_ports();
 	init_timer();
  
 	while (1)

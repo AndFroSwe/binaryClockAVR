@@ -220,11 +220,11 @@ END GROUP
  .text.init_timer
                 0x0000003a       0x22 main.o
                 0x0000003a                init_timer
+ .text.main     0x0000005c        0x6 main.o
+                0x0000005c                main
  .text.__vector_4
-                0x0000005c       0x24 main.o
-                0x0000005c                __vector_4
- .text.main     0x00000080        0x6 main.o
-                0x00000080                main
+                0x00000062       0x24 main.o
+                0x00000062                __vector_4
                 0x00000086                . = ALIGN (0x2)
  *(.fini9)
  .fini9         0x00000086        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr4\libgcc.a(_exit.o)
@@ -349,13 +349,13 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000       0xe7
+.debug_info     0x00000000       0xeb
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000       0xe7 main.o
+ .debug_info    0x00000000       0xeb main.o
 
-.debug_abbrev   0x00000000       0x8e
+.debug_abbrev   0x00000000       0x90
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0x8e main.o
+ .debug_abbrev  0x00000000       0x90 main.o
 
 .debug_line     0x00000000       0xd8
  *(.debug_line .debug_line.* .debug_line_end)

@@ -13,19 +13,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .debug_aranges 00000038  00000000  00000000  00000150  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000000e7  00000000  00000000  00000188  2**0
+  5 .debug_info   000000eb  00000000  00000000  00000188  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000008e  00000000  00000000  0000026f  2**0
+  6 .debug_abbrev 00000090  00000000  00000000  00000273  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000000d8  00000000  00000000  000002fd  2**0
+  7 .debug_line   000000d8  00000000  00000000  00000303  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000068  00000000  00000000  000003d8  2**2
+  8 .debug_frame  00000068  00000000  00000000  000003dc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000016b  00000000  00000000  00000440  2**0
+  9 .debug_str    0000016b  00000000  00000000  00000444  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000049  00000000  00000000  000005ab  2**0
+ 10 .debug_loc    00000049  00000000  00000000  000005af  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000028  00000000  00000000  000005f4  2**0
+ 11 .debug_ranges 00000028  00000000  00000000  000005f8  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -35,7 +35,7 @@ Disassembly of section .text:
    2:	17 c0       	rjmp	.+46     	; 0x32 <__bad_interrupt>
    4:	16 c0       	rjmp	.+44     	; 0x32 <__bad_interrupt>
    6:	15 c0       	rjmp	.+42     	; 0x32 <__bad_interrupt>
-   8:	29 c0       	rjmp	.+82     	; 0x5c <__vector_4>
+   8:	2c c0       	rjmp	.+88     	; 0x62 <__vector_4>
    a:	13 c0       	rjmp	.+38     	; 0x32 <__bad_interrupt>
    c:	12 c0       	rjmp	.+36     	; 0x32 <__bad_interrupt>
    e:	11 c0       	rjmp	.+34     	; 0x32 <__bad_interrupt>
@@ -56,15 +56,15 @@ Disassembly of section .text:
   28:	d2 e0       	ldi	r29, 0x02	; 2
   2a:	de bf       	out	0x3e, r29	; 62
   2c:	cd bf       	out	0x3d, r28	; 61
-  2e:	28 d0       	rcall	.+80     	; 0x80 <main>
+  2e:	16 d0       	rcall	.+44     	; 0x5c <main>
   30:	2a c0       	rjmp	.+84     	; 0x86 <_exit>
 
 00000032 <__bad_interrupt>:
   32:	e6 cf       	rjmp	.-52     	; 0x0 <__vectors>
 
 00000034 <init_ports>:
-#include <avr/io.h>
-#include <avr/interrupt.h>
+	return 0;
+}
 
 void init_ports(void){
 	// Set outputs
@@ -103,44 +103,49 @@ void init_timer(void){
   58:	78 94       	sei
   5a:	08 95       	ret
 
-0000005c <__vector_4>:
-}
+0000005c <main>:
+void init_ports();
+void init_timer();
 
-ISR(TIMER1_COMPA_vect){
-  5c:	1f 92       	push	r1
-  5e:	0f 92       	push	r0
-  60:	0f b6       	in	r0, 0x3f	; 63
-  62:	0f 92       	push	r0
-  64:	11 24       	eor	r1, r1
-  66:	8f 93       	push	r24
-  68:	9f 93       	push	r25
-	PORTB ^= 0x01;
-  6a:	98 b3       	in	r25, 0x18	; 24
-  6c:	81 e0       	ldi	r24, 0x01	; 1
-  6e:	89 27       	eor	r24, r25
-  70:	88 bb       	out	0x18, r24	; 24
-}
-  72:	9f 91       	pop	r25
-  74:	8f 91       	pop	r24
-  76:	0f 90       	pop	r0
-  78:	0f be       	out	0x3f, r0	; 63
-  7a:	0f 90       	pop	r0
-  7c:	1f 90       	pop	r1
-  7e:	18 95       	reti
-
-00000080 <main>:
-	
 int main(void)
 {
 	init_ports();
-  80:	d9 df       	rcall	.-78     	; 0x34 <init_ports>
+  5c:	eb df       	rcall	.-42     	; 0x34 <init_ports>
 	init_timer();
-  82:	db df       	rcall	.-74     	; 0x3a <init_timer>
+  5e:	ed df       	rcall	.-38     	; 0x3a <init_timer>
  
 	while (1)
     {
     }
-  84:	ff cf       	rjmp	.-2      	; 0x84 <main+0x4>
+  60:	ff cf       	rjmp	.-2      	; 0x60 <main+0x4>
+
+00000062 <__vector_4>:
+	TCCR1B |= (1 << CS10) | (1 << CS11);	// Set prescaler to 1/64
+	OCR1A = 15624;			// Compare value of register
+	sei(); // Enable global interrupts
+}
+
+ISR(TIMER1_COMPA_vect){
+  62:	1f 92       	push	r1
+  64:	0f 92       	push	r0
+  66:	0f b6       	in	r0, 0x3f	; 63
+  68:	0f 92       	push	r0
+  6a:	11 24       	eor	r1, r1
+  6c:	8f 93       	push	r24
+  6e:	9f 93       	push	r25
+	PORTB ^= 0x01;
+  70:	98 b3       	in	r25, 0x18	; 24
+  72:	81 e0       	ldi	r24, 0x01	; 1
+  74:	89 27       	eor	r24, r25
+  76:	88 bb       	out	0x18, r24	; 24
+}
+  78:	9f 91       	pop	r25
+  7a:	8f 91       	pop	r24
+  7c:	0f 90       	pop	r0
+  7e:	0f be       	out	0x3f, r0	; 63
+  80:	0f 90       	pop	r0
+  82:	1f 90       	pop	r1
+  84:	18 95       	reti
 
 00000086 <_exit>:
   86:	f8 94       	cli

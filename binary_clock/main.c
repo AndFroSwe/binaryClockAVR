@@ -7,10 +7,26 @@
  * Uses timer interrupt to set correct leds
  * Register info can be found in manual page 131
  * Processor must be programmed to run at 1 MHz internal oscillator
+ * TODO: Move function prototypes to header file
  */ 
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+
+// Function prototypes
+void init_ports();
+void init_timer();
+
+int main(void)
+{
+	init_ports();
+	init_timer();
+ 
+	while (1)
+    {
+    }
+	return 0;
+}
 
 void init_ports(void){
 	// Set outputs
@@ -32,13 +48,3 @@ ISR(TIMER1_COMPA_vect){
 	PORTB ^= 0x01;
 }
 	
-int main(void)
-{
-	init_ports();
-	init_timer();
- 
-	while (1)
-    {
-    }
-	return 0;
-}

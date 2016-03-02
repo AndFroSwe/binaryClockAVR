@@ -24,7 +24,9 @@ int old_button = 0;
 void init_ports();
 void init_timer();
 void init_pin_interrupt();
+void inti_sleep_mode();
 void update_minutes();
+void start_sleep();
 
 
 int main(void)
@@ -36,6 +38,7 @@ int main(void)
  
 	while (1)
     {
+		start_sleep();
 	}
 	return 0;
 }
@@ -70,6 +73,14 @@ void init_pin_interrupt(void){
 	EIMSK |= (1 << INT1);		// Enable INT0 interrupt
 }
 
+void init_sleep_mode(void){
+	SMCR = 0x00;	// Set to idle mode
+}
+
+void start_sleep(void){
+	SMCR |= (1 << SE);
+}
+
 ISR(TIMER1_COMPA_vect){
 	++TIME;
 	update_minutes();	
@@ -81,7 +92,7 @@ ISR(INT0_vect) {
 }
 
 ISR(INT1_vect) {
-	// Increase minutes
+	// Increase hours
 	TIME += 10;
 }
 

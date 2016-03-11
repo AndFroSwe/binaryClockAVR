@@ -28,6 +28,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:binaryclock-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -43,12 +44,12 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L ATMEGA328P-P IC?
+L ATMEGA328P-P IC1
 U 1 1 56E25A57
 P 7650 3800
-F 0 "IC?" H 6900 5050 50  0000 L BNN
+F 0 "IC1" H 6900 5050 50  0000 L BNN
 F 1 "ATMEGA328P-P" H 8050 2400 50  0000 L BNN
-F 2 "DIL28" H 7650 3800 50  0000 C CIN
+F 2 "Housings_DIP:DIP-28_W7.62mm" H 7650 3800 50  0000 C CIN
 F 3 "" H 7650 3800 50  0000 C CNN
 	1    7650 3800
 	1    0    0    -1  
@@ -56,133 +57,133 @@ $EndComp
 NoConn ~ 6750 3000
 NoConn ~ 6750 3300
 $Comp
-L LED D?
+L LED D1
 U 1 1 56E25D1D
 P 2850 1050
-F 0 "D?" H 2850 1150 50  0000 C CNN
+F 0 "D1" H 2850 1150 50  0000 C CNN
 F 1 "LED" H 2850 950 50  0000 C CNN
-F 2 "" H 2850 1050 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 1050 50  0001 C CNN
 F 3 "" H 2850 1050 50  0000 C CNN
 	1    2850 1050
 	-1   0    0    1   
 $EndComp
 $Comp
-L LED D?
+L LED D2
 U 1 1 56E25E56
 P 2850 1300
-F 0 "D?" H 2850 1400 50  0000 C CNN
+F 0 "D2" H 2850 1400 50  0000 C CNN
 F 1 "LED" H 2850 1200 50  0000 C CNN
-F 2 "" H 2850 1300 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 1300 50  0001 C CNN
 F 3 "" H 2850 1300 50  0000 C CNN
 	1    2850 1300
 	-1   0    0    1   
 $EndComp
 $Comp
-L LED D?
+L LED D3
 U 1 1 56E25E93
 P 2850 1550
-F 0 "D?" H 2850 1650 50  0000 C CNN
+F 0 "D3" H 2850 1650 50  0000 C CNN
 F 1 "LED" H 2850 1450 50  0000 C CNN
-F 2 "" H 2850 1550 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 1550 50  0001 C CNN
 F 3 "" H 2850 1550 50  0000 C CNN
 	1    2850 1550
 	-1   0    0    1   
 $EndComp
 $Comp
-L LED D?
+L LED D4
 U 1 1 56E25EB3
 P 2850 1800
-F 0 "D?" H 2850 1900 50  0000 C CNN
+F 0 "D4" H 2850 1900 50  0000 C CNN
 F 1 "LED" H 2850 1700 50  0000 C CNN
-F 2 "" H 2850 1800 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 1800 50  0001 C CNN
 F 3 "" H 2850 1800 50  0000 C CNN
 	1    2850 1800
 	-1   0    0    1   
 $EndComp
 $Comp
-L LED D?
+L LED D5
 U 1 1 56E25EE6
 P 2850 2050
-F 0 "D?" H 2850 2150 50  0000 C CNN
+F 0 "D5" H 2850 2150 50  0000 C CNN
 F 1 "LED" H 2850 1950 50  0000 C CNN
-F 2 "" H 2850 2050 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 2050 50  0001 C CNN
 F 3 "" H 2850 2050 50  0000 C CNN
 	1    2850 2050
 	-1   0    0    1   
 $EndComp
 $Comp
-L LED D?
+L LED D6
 U 1 1 56E25F0E
 P 2850 2300
-F 0 "D?" H 2850 2400 50  0000 C CNN
+F 0 "D6" H 2850 2400 50  0000 C CNN
 F 1 "LED" H 2850 2200 50  0000 C CNN
-F 2 "" H 2850 2300 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 2300 50  0001 C CNN
 F 3 "" H 2850 2300 50  0000 C CNN
 	1    2850 2300
 	-1   0    0    1   
 $EndComp
 $Comp
-L R R
+L R R1
 U 1 1 56E25F59
 P 2250 1050
-F 0 "R" V 2330 1050 50  0000 C CNN
+F 0 "R1" V 2330 1050 50  0000 C CNN
 F 1 "220" V 2250 1050 50  0000 C CNN
-F 2 "" V 2180 1050 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 1050 50  0001 C CNN
 F 3 "" H 2250 1050 50  0000 C CNN
 	1    2250 1050
 	0    1    1    0   
 $EndComp
 $Comp
-L R R
+L R R2
 U 1 1 56E25FEC
 P 2250 1300
-F 0 "R" V 2330 1300 50  0000 C CNN
+F 0 "R2" V 2330 1300 50  0000 C CNN
 F 1 "220" V 2250 1300 50  0000 C CNN
-F 2 "" V 2180 1300 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 1300 50  0001 C CNN
 F 3 "" H 2250 1300 50  0000 C CNN
 	1    2250 1300
 	0    1    1    0   
 $EndComp
 $Comp
-L R R
+L R R3
 U 1 1 56E2601F
 P 2250 1550
-F 0 "R" V 2330 1550 50  0000 C CNN
+F 0 "R3" V 2330 1550 50  0000 C CNN
 F 1 "220" V 2250 1550 50  0000 C CNN
-F 2 "" V 2180 1550 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 1550 50  0001 C CNN
 F 3 "" H 2250 1550 50  0000 C CNN
 	1    2250 1550
 	0    1    1    0   
 $EndComp
 $Comp
-L R R
+L R R4
 U 1 1 56E26073
 P 2250 1800
-F 0 "R" V 2330 1800 50  0000 C CNN
+F 0 "R4" V 2330 1800 50  0000 C CNN
 F 1 "220" V 2250 1800 50  0000 C CNN
-F 2 "" V 2180 1800 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 1800 50  0001 C CNN
 F 3 "" H 2250 1800 50  0000 C CNN
 	1    2250 1800
 	0    1    1    0   
 $EndComp
 $Comp
-L R R
+L R R5
 U 1 1 56E260A8
 P 2250 2050
-F 0 "R" V 2330 2050 50  0000 C CNN
+F 0 "R5" V 2330 2050 50  0000 C CNN
 F 1 "220" V 2250 2050 50  0000 C CNN
-F 2 "" V 2180 2050 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 2050 50  0001 C CNN
 F 3 "" H 2250 2050 50  0000 C CNN
 	1    2250 2050
 	0    1    1    0   
 $EndComp
 $Comp
-L R R
+L R R6
 U 1 1 56E260E0
 P 2250 2300
-F 0 "R" V 2330 2300 50  0000 C CNN
+F 0 "R6" V 2330 2300 50  0000 C CNN
 F 1 "220" V 2250 2300 50  0000 C CNN
-F 2 "" V 2180 2300 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Ceramic_Horizontal_L19mm-W8mm-H8mm-p25mm" V 2180 2300 50  0001 C CNN
 F 3 "" H 2250 2300 50  0000 C CNN
 	1    2250 2300
 	0    1    1    0   
@@ -200,10 +201,10 @@ Wire Wire Line
 Wire Wire Line
 	2400 2300 2650 2300
 $Comp
-L GND #PWR?
+L GND #PWR01
 U 1 1 56E2704C
 P 3200 2400
-F 0 "#PWR?" H 3200 2150 50  0001 C CNN
+F 0 "#PWR01" H 3200 2150 50  0001 C CNN
 F 1 "GND" H 3200 2250 50  0000 C CNN
 F 2 "" H 3200 2400 50  0000 C CNN
 F 3 "" H 3200 2400 50  0000 C CNN
@@ -211,7 +212,7 @@ F 3 "" H 3200 2400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3050 2300 3200 2300
+	3200 2300 3050 2300
 Wire Wire Line
 	3200 1050 3200 2400
 Wire Wire Line
@@ -253,24 +254,13 @@ Wire Wire Line
 	1900 2050 2100 2050
 Wire Wire Line
 	1900 2300 2100 2300
-$Comp
-L +3.3V #PWR?
-U 1 1 56E283CA
-P 6300 2700
-F 0 "#PWR?" H 6300 2550 50  0001 C CNN
-F 1 "+3.3V" H 6300 2840 50  0000 C CNN
-F 2 "" H 6300 2700 50  0000 C CNN
-F 3 "" H 6300 2700 50  0000 C CNN
-	1    6300 2700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6300 2700 6750 2700
 $Comp
-L GND #PWR?
+L GND #PWR03
 U 1 1 56E2841F
 P 6500 5000
-F 0 "#PWR?" H 6500 4750 50  0001 C CNN
+F 0 "#PWR03" H 6500 4750 50  0001 C CNN
 F 1 "GND" H 6500 4850 50  0000 C CNN
 F 2 "" H 6500 5000 50  0000 C CNN
 F 3 "" H 6500 5000 50  0000 C CNN
@@ -287,12 +277,538 @@ Text GLabel 8650 4300 2    60   Input ~ 0
 minute_leastsig_1
 Text GLabel 8650 4400 2    60   Input ~ 0
 minute_leastsig_2
-Text GLabel 8650 4500 2    60   Input ~ 0
-minute_leastsig_3
-Text GLabel 8650 4600 2    60   Input ~ 0
-minute_leastsig_4
 Text GLabel 8650 4700 2    60   Input ~ 0
-minute_leastsig_5
+minute_leastsig_3
 Text GLabel 8650 4800 2    60   Input ~ 0
+minute_leastsig_4
+Text GLabel 8650 4900 2    60   Input ~ 0
+minute_leastsig_5
+Text GLabel 8650 5000 2    60   Input ~ 0
 minute_leastsig_6
+Text GLabel 8650 4050 2    60   Input ~ 0
+minute_mostsig_3
+Text GLabel 8650 3950 2    60   Input ~ 0
+minute_mostsig_2
+Text GLabel 8650 3850 2    60   Input ~ 0
+minute_mostsig_1
+Text GLabel 8650 3200 2    60   Input ~ 0
+hour_leastsig_1
+Text GLabel 8650 3300 2    60   Input ~ 0
+hour_leastsig_2
+Text GLabel 8650 3400 2    60   Input ~ 0
+hour_leastsig_3
+Text GLabel 8650 3550 2    60   Input ~ 0
+hour_leastsig_4
+Text GLabel 8650 3650 2    60   Input ~ 0
+hour_leastsig_5
+Text GLabel 8650 3750 2    60   Input ~ 0
+hour_leastsig_6
+Text GLabel 8650 3000 2    60   Input ~ 0
+hour_mostsig_1
+Text GLabel 8650 3100 2    60   Input ~ 0
+hour_mostsig_2
+Text GLabel 1900 2950 0    60   Input ~ 0
+minute_mostsig_1
+Text GLabel 1900 3200 0    60   Input ~ 0
+minute_mostsig_2
+Text GLabel 1900 3450 0    60   Input ~ 0
+minute_mostsig_3
+$Comp
+L R R?
+U 1 1 56E3085E
+P 2250 2950
+F 0 "R?" V 2330 2950 50  0000 C CNN
+F 1 "220" V 2250 2950 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 2950 50  0001 C CNN
+F 3 "" H 2250 2950 50  0000 C CNN
+	1    2250 2950
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E308CE
+P 2250 3200
+F 0 "R?" V 2330 3200 50  0000 C CNN
+F 1 "220" V 2250 3200 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 3200 50  0001 C CNN
+F 3 "" H 2250 3200 50  0000 C CNN
+	1    2250 3200
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E30919
+P 2250 3450
+F 0 "R?" V 2330 3450 50  0000 C CNN
+F 1 "220" V 2250 3450 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 3450 50  0001 C CNN
+F 3 "" H 2250 3450 50  0000 C CNN
+	1    2250 3450
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E30967
+P 2850 2950
+F 0 "D?" H 2850 3050 50  0000 C CNN
+F 1 "LED" H 2850 2850 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 2950 50  0001 C CNN
+F 3 "" H 2850 2950 50  0000 C CNN
+	1    2850 2950
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E309CC
+P 2850 3200
+F 0 "D?" H 2850 3300 50  0000 C CNN
+F 1 "LED" H 2850 3100 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 3200 50  0001 C CNN
+F 3 "" H 2850 3200 50  0000 C CNN
+	1    2850 3200
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E30A20
+P 2850 3450
+F 0 "D?" H 2850 3550 50  0000 C CNN
+F 1 "LED" H 2850 3350 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 3450 50  0001 C CNN
+F 3 "" H 2850 3450 50  0000 C CNN
+	1    2850 3450
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1900 2950 2100 2950
+Wire Wire Line
+	2400 2950 2650 2950
+Wire Wire Line
+	1900 3200 2100 3200
+Wire Wire Line
+	1900 3450 2100 3450
+Wire Wire Line
+	2400 3450 2650 3450
+Wire Wire Line
+	2400 3200 2650 3200
+$Comp
+L GND #PWR?
+U 1 1 56E30F61
+P 3150 3550
+F 0 "#PWR?" H 3150 3300 50  0001 C CNN
+F 1 "GND" H 3150 3400 50  0000 C CNN
+F 2 "" H 3150 3550 50  0000 C CNN
+F 3 "" H 3150 3550 50  0000 C CNN
+	1    3150 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 3450 3050 3450
+Wire Wire Line
+	3150 2950 3150 3550
+Wire Wire Line
+	3050 3200 3150 3200
+Connection ~ 3150 3450
+Wire Wire Line
+	3050 2950 3150 2950
+Connection ~ 3150 3200
+Text GLabel 1850 4300 0    60   Input ~ 0
+hour_leastsig_1
+Text GLabel 1850 4500 0    60   Input ~ 0
+hour_leastsig_2
+Text GLabel 1850 4700 0    60   Input ~ 0
+hour_leastsig_3
+Text GLabel 1850 4900 0    60   Input ~ 0
+hour_leastsig_4
+Text GLabel 1850 5100 0    60   Input ~ 0
+hour_leastsig_5
+Text GLabel 1850 5300 0    60   Input ~ 0
+hour_leastsig_2
+$Comp
+L R R?
+U 1 1 56E3218D
+P 2250 4300
+F 0 "R?" V 2330 4300 50  0000 C CNN
+F 1 "220" V 2250 4300 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 4300 50  0001 C CNN
+F 3 "" H 2250 4300 50  0000 C CNN
+	1    2250 4300
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E321FD
+P 2250 4500
+F 0 "R?" V 2330 4500 50  0000 C CNN
+F 1 "220" V 2250 4500 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 4500 50  0001 C CNN
+F 3 "" H 2250 4500 50  0000 C CNN
+	1    2250 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E323B8
+P 2250 4700
+F 0 "R?" V 2330 4700 50  0000 C CNN
+F 1 "220" V 2250 4700 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 4700 50  0001 C CNN
+F 3 "" H 2250 4700 50  0000 C CNN
+	1    2250 4700
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E3240C
+P 2250 4900
+F 0 "R?" V 2330 4900 50  0000 C CNN
+F 1 "220" V 2250 4900 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 4900 50  0001 C CNN
+F 3 "" H 2250 4900 50  0000 C CNN
+	1    2250 4900
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E3247A
+P 2250 5100
+F 0 "R?" V 2330 5100 50  0000 C CNN
+F 1 "220" V 2250 5100 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 5100 50  0001 C CNN
+F 3 "" H 2250 5100 50  0000 C CNN
+	1    2250 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E326CE
+P 2250 5300
+F 0 "R?" V 2330 5300 50  0000 C CNN
+F 1 "220" V 2250 5300 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 5300 50  0001 C CNN
+F 3 "" H 2250 5300 50  0000 C CNN
+	1    2250 5300
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E3296F
+P 2850 4300
+F 0 "D?" H 2850 4400 50  0000 C CNN
+F 1 "LED" H 2850 4200 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 4300 50  0001 C CNN
+F 3 "" H 2850 4300 50  0000 C CNN
+	1    2850 4300
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 56E329E1
+P 3100 5350
+F 0 "#PWR?" H 3100 5100 50  0001 C CNN
+F 1 "GND" H 3100 5200 50  0000 C CNN
+F 2 "" H 3100 5350 50  0000 C CNN
+F 3 "" H 3100 5350 50  0000 C CNN
+	1    3100 5350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1850 4300 2100 4300
+Wire Wire Line
+	2400 4300 2650 4300
+Wire Wire Line
+	1850 4500 2100 4500
+$Comp
+L LED D?
+U 1 1 56E32D99
+P 2850 4500
+F 0 "D?" H 2850 4600 50  0000 C CNN
+F 1 "LED" H 2850 4400 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 4500 50  0001 C CNN
+F 3 "" H 2850 4500 50  0000 C CNN
+	1    2850 4500
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E32DFE
+P 2850 4700
+F 0 "D?" H 2850 4800 50  0000 C CNN
+F 1 "LED" H 2850 4600 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 4700 50  0001 C CNN
+F 3 "" H 2850 4700 50  0000 C CNN
+	1    2850 4700
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E32E64
+P 2850 4900
+F 0 "D?" H 2850 5000 50  0000 C CNN
+F 1 "LED" H 2850 4800 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 4900 50  0001 C CNN
+F 3 "" H 2850 4900 50  0000 C CNN
+	1    2850 4900
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E32ED3
+P 2850 5100
+F 0 "D?" H 2850 5200 50  0000 C CNN
+F 1 "LED" H 2850 5000 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 5100 50  0001 C CNN
+F 3 "" H 2850 5100 50  0000 C CNN
+	1    2850 5100
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E32F41
+P 2850 5300
+F 0 "D?" H 2850 5400 50  0000 C CNN
+F 1 "LED" H 2850 5200 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2850 5300 50  0001 C CNN
+F 3 "" H 2850 5300 50  0000 C CNN
+	1    2850 5300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2400 4500 2650 4500
+Wire Wire Line
+	1850 4700 2100 4700
+Wire Wire Line
+	2400 4700 2650 4700
+Wire Wire Line
+	1850 4900 2100 4900
+Wire Wire Line
+	2400 4900 2650 4900
+Wire Wire Line
+	1850 5100 2100 5100
+Wire Wire Line
+	1850 5300 2100 5300
+Wire Wire Line
+	2400 5100 2650 5100
+Wire Wire Line
+	2650 5300 2400 5300
+Wire Wire Line
+	3100 5300 3050 5300
+Wire Wire Line
+	3100 4300 3100 5350
+Wire Wire Line
+	3050 5100 3100 5100
+Connection ~ 3100 5300
+Wire Wire Line
+	3050 4900 3100 4900
+Connection ~ 3100 5100
+Wire Wire Line
+	3050 4700 3100 4700
+Connection ~ 3100 4900
+Wire Wire Line
+	3050 4500 3100 4500
+Connection ~ 3100 4700
+Wire Wire Line
+	3050 4300 3100 4300
+Connection ~ 3100 4500
+Text GLabel 1800 6100 0    60   Input ~ 0
+hour_mostsig_1
+Text GLabel 1800 6300 0    60   Input ~ 0
+hour_mostsig_1
+Text GLabel 1800 6500 0    60   Input ~ 0
+hour_mostsig_1
+$Comp
+L R R?
+U 1 1 56E33AD6
+P 2250 6100
+F 0 "R?" V 2330 6100 50  0000 C CNN
+F 1 "220" V 2250 6100 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 6100 50  0001 C CNN
+F 3 "" H 2250 6100 50  0000 C CNN
+	1    2250 6100
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E33B66
+P 2800 6100
+F 0 "D?" H 2800 6200 50  0000 C CNN
+F 1 "LED" H 2800 6000 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2800 6100 50  0001 C CNN
+F 3 "" H 2800 6100 50  0000 C CNN
+	1    2800 6100
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 56E33BE9
+P 3100 6550
+F 0 "#PWR?" H 3100 6300 50  0001 C CNN
+F 1 "GND" H 3100 6400 50  0000 C CNN
+F 2 "" H 3100 6550 50  0000 C CNN
+F 3 "" H 3100 6550 50  0000 C CNN
+	1    3100 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 56E33E04
+P 2250 6300
+F 0 "R?" V 2330 6300 50  0000 C CNN
+F 1 "220" V 2250 6300 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 6300 50  0001 C CNN
+F 3 "" H 2250 6300 50  0000 C CNN
+	1    2250 6300
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 56E33EE8
+P 2250 6500
+F 0 "R?" V 2330 6500 50  0000 C CNN
+F 1 "220" V 2250 6500 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2180 6500 50  0001 C CNN
+F 3 "" H 2250 6500 50  0000 C CNN
+	1    2250 6500
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E33F65
+P 2800 6300
+F 0 "D?" H 2800 6400 50  0000 C CNN
+F 1 "LED" H 2800 6200 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2800 6300 50  0001 C CNN
+F 3 "" H 2800 6300 50  0000 C CNN
+	1    2800 6300
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56E33FE9
+P 2800 6500
+F 0 "D?" H 2800 6600 50  0000 C CNN
+F 1 "LED" H 2800 6400 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 2800 6500 50  0001 C CNN
+F 3 "" H 2800 6500 50  0000 C CNN
+	1    2800 6500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1800 6100 2100 6100
+Wire Wire Line
+	2100 6300 1800 6300
+Wire Wire Line
+	1800 6500 2100 6500
+Wire Wire Line
+	2400 6500 2600 6500
+Wire Wire Line
+	2600 6300 2400 6300
+Wire Wire Line
+	2400 6100 2600 6100
+Wire Wire Line
+	3100 6500 3000 6500
+Wire Wire Line
+	3100 6100 3100 6550
+Wire Wire Line
+	3000 6300 3100 6300
+Connection ~ 3100 6500
+Wire Wire Line
+	3000 6100 3100 6100
+Connection ~ 3100 6300
+Text Label 1800 750  0    60   ~ 0
+MinuteLEDs
+Text Label 1850 4000 0    60   ~ 0
+HourLEDS
+$Comp
+L +5V #PWR?
+U 1 1 56E359F4
+P 6300 2700
+F 0 "#PWR?" H 6300 2550 50  0001 C CNN
+F 1 "+5V" H 6300 2840 50  0000 C CNN
+F 2 "" H 6300 2700 50  0000 C CNN
+F 3 "" H 6300 2700 50  0000 C CNN
+	1    6300 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SW_PUSH SW?
+U 1 1 56E363E7
+P 4950 1500
+F 0 "SW?" H 5100 1610 50  0000 C CNN
+F 1 "SW_PUSH" H 4950 1420 50  0000 C CNN
+F 2 "" H 4950 1500 50  0000 C CNN
+F 3 "" H 4950 1500 50  0000 C CNN
+	1    4950 1500
+	1    0    0    -1  
+$EndComp
+Text GLabel 8650 4500 2    60   Input ~ 0
+add_minute
+Text GLabel 8650 4600 2    60   Input ~ 0
+add_hour
+Text GLabel 4400 1500 0    60   Input ~ 0
+add_minute
+Text GLabel 4350 2300 0    60   Input ~ 0
+add_hour
+Wire Wire Line
+	4400 1500 4650 1500
+Connection ~ 4600 1500
+$Comp
+L GND #PWR?
+U 1 1 56E38756
+P 5400 1600
+F 0 "#PWR?" H 5400 1350 50  0001 C CNN
+F 1 "GND" H 5400 1450 50  0000 C CNN
+F 2 "" H 5400 1600 50  0000 C CNN
+F 3 "" H 5400 1600 50  0000 C CNN
+	1    5400 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 1500 5400 1500
+Wire Wire Line
+	5400 1500 5400 1600
+$Comp
+L SW_PUSH SW?
+U 1 1 56E38858
+P 4950 2300
+F 0 "SW?" H 5100 2410 50  0000 C CNN
+F 1 "SW_PUSH" H 4950 2220 50  0000 C CNN
+F 2 "" H 4950 2300 50  0000 C CNN
+F 3 "" H 4950 2300 50  0000 C CNN
+	1    4950 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 2300 4650 2300
+$Comp
+L GND #PWR?
+U 1 1 56E38A58
+P 5400 2400
+F 0 "#PWR?" H 5400 2150 50  0001 C CNN
+F 1 "GND" H 5400 2250 50  0000 C CNN
+F 2 "" H 5400 2400 50  0000 C CNN
+F 3 "" H 5400 2400 50  0000 C CNN
+	1    5400 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 2300 5400 2300
+Wire Wire Line
+	5400 2300 5400 2400
+$Comp
+L +5V #PWR?
+U 1 1 56E39CEF
+P 9800 4150
+F 0 "#PWR?" H 9800 4000 50  0001 C CNN
+F 1 "+5V" H 9800 4290 50  0000 C CNN
+F 2 "" H 9800 4150 50  0000 C CNN
+F 3 "" H 9800 4150 50  0000 C CNN
+	1    9800 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 4150 9800 4150
+NoConn ~ 8650 2700
+NoConn ~ 8650 2800
+NoConn ~ 8650 2900
 $EndSCHEMATC
